@@ -45,15 +45,17 @@ export default function App() {
       {/* ── Header ── */}
       <header className="bg-eq-navy shadow-lg sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center gap-4">
-          <img
-            src="logo.png"
-            alt="Equestrian Glossary"
-            className="h-12 sm:h-14 object-contain flex-shrink-0"
-            onError={e => e.target.style.display = 'none'}
-          />
+          <div className="bg-white rounded-full p-1 flex-shrink-0 shadow-md">
+            <img
+              src={`${import.meta.env.BASE_URL}logo.png`}
+              alt="Stable Terms"
+              className="h-14 sm:h-16 w-14 sm:w-16 object-contain rounded-full"
+              onError={e => e.target.parentElement.style.display = 'none'}
+            />
+          </div>
           <div>
-            <h1 className="text-white font-bold text-lg sm:text-xl tracking-widest uppercase leading-tight">
-              Equestrian Glossary
+            <h1 className="text-white font-bold text-xl sm:text-2xl tracking-widest uppercase leading-tight">
+              Stable Terms
             </h1>
             <p className="text-eq-gold text-xs sm:text-sm italic tracking-wide">
               Your guide to horse world terminology
@@ -261,7 +263,7 @@ export default function App() {
 
       <footer className="bg-eq-navy mt-12 py-5">
         <p className="text-center text-white/50 text-xs tracking-widest uppercase">
-          Equestrian Glossary &mdash; For the horse world
+          Stable Terms &mdash; Your guide to horse world terminology
         </p>
       </footer>
     </div>
