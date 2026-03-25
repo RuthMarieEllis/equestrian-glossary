@@ -40,32 +40,57 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-eq-cream">
+    <div className="min-h-screen flex flex-col lg:flex-row bg-eq-cream">
 
-      {/* ── Header ── */}
-      <header className="bg-eq-navy shadow-lg sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center gap-4">
-          <div className="bg-white rounded-full p-1 flex-shrink-0 shadow-md">
-            <img
-              src={`${import.meta.env.BASE_URL}logo.png`}
-              alt="Stable Terms"
-              className="h-14 sm:h-16 w-14 sm:w-16 object-contain rounded-full"
-              onError={e => e.target.parentElement.style.display = 'none'}
-            />
-          </div>
-          <div>
-            <h1 className="text-white font-bold text-xl sm:text-2xl tracking-widest uppercase leading-tight">
-              Stable Terms
-            </h1>
-            <p className="text-eq-gold text-xs sm:text-sm italic tracking-wide">
-              Your guide to horse world terminology
-            </p>
-          </div>
+      {/* ── Mobile header (small screens only) ── */}
+      <header className="lg:hidden bg-eq-navy flex items-center gap-3 px-4 py-3 shadow-md sticky top-0 z-50">
+        <img
+          src={`${import.meta.env.BASE_URL}logo.png`}
+          alt="Stable Terms"
+          className="h-10 w-10 object-contain rounded-full bg-white p-0.5"
+          onError={e => e.target.style.display = 'none'}
+        />
+        <div>
+          <h1 className="text-white font-bold text-lg tracking-widest uppercase leading-none">Stable Terms</h1>
+          <p className="text-eq-gold text-xs italic">Your guide to horse world terminology</p>
         </div>
       </header>
 
-      {/* ── Main ── */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+      {/* ── Sidebar (large screens only) ── */}
+      <aside className="hidden lg:flex flex-col items-center w-64 xl:w-72 bg-eq-navy min-h-screen sticky top-0 h-screen py-10 px-6 shrink-0">
+        <img
+          src={`${import.meta.env.BASE_URL}logo.png`}
+          alt="Stable Terms"
+          className="w-44 xl:w-52 object-contain mb-6"
+          onError={e => e.target.style.display = 'none'}
+        />
+        <h1 className="text-white font-bold text-2xl xl:text-3xl tracking-widest uppercase text-center leading-tight mb-2">
+          Stable Terms
+        </h1>
+        <p className="text-eq-gold text-sm italic text-center leading-relaxed mb-8">
+          Your guide to horse world terminology
+        </p>
+        <div className="flex items-center gap-3 w-full mb-8">
+          <div className="flex-1 h-px bg-eq-gold opacity-40" />
+          <span className="text-eq-gold text-xs">✦</span>
+          <div className="flex-1 h-px bg-eq-gold opacity-40" />
+        </div>
+        <div className="text-center space-y-3">
+          <p className="text-white/60 text-xs leading-relaxed">
+            {categories.reduce((sum, c) => sum + c.terms.length, 0)}+ terms across {categories.length} categories
+          </p>
+          <p className="text-white/40 text-xs italic">
+            From gaits to tack, breeds to dressage
+          </p>
+        </div>
+        <div className="mt-auto text-white/25 text-xs text-center">
+          © Stable Terms
+        </div>
+      </aside>
+
+      {/* ── Main content ── */}
+      <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">
+        <div className="max-w-3xl mx-auto">
         <div className="bg-white rounded-2xl shadow-md border border-eq-cream-dark p-6 sm:p-8">
 
         {/* Search bar */}
@@ -259,13 +284,9 @@ export default function App() {
         )}
 
         </div>{/* end white container */}
+        </div>{/* end max-w-3xl */}
       </main>
 
-      <footer className="bg-eq-navy mt-12 py-5">
-        <p className="text-center text-white/50 text-xs tracking-widest uppercase">
-          Stable Terms &mdash; Your guide to horse world terminology
-        </p>
-      </footer>
     </div>
   )
 }
