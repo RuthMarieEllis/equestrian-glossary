@@ -64,6 +64,7 @@ export default function App() {
 
       {/* ── Main ── */}
       <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+        <div className="bg-white rounded-2xl shadow-md border border-eq-cream-dark p-6 sm:p-8">
 
         {/* Search bar */}
         <div className="mb-8">
@@ -254,9 +255,10 @@ export default function App() {
             </div>
           </div>
         )}
+
+        </div>{/* end white container */}
       </main>
 
-      {/* ── Footer ── */}
       <footer className="bg-eq-navy mt-12 py-5">
         <p className="text-center text-white/50 text-xs tracking-widest uppercase">
           Equestrian Glossary &mdash; For the horse world
