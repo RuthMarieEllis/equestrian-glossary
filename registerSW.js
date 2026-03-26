@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/equestrian-glossary/sw.js', { scope: '/equestrian-glossary/' })})}
